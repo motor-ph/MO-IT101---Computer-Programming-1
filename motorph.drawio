@@ -56,11 +56,11 @@
         <mxCell id="6tIr1BvMprqAoBGWCOfl-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="View Account Details" vertex="1">
           <mxGeometry height="70" width="140" x="-160" y="90" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Employee Check-In" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Set Time-in" vertex="1">
           <mxGeometry height="70" width="140" x="-30" y="150" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Employee Check-Out" vertex="1">
-          <mxGeometry height="70" width="140" x="10" y="230" as="geometry" />
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Set Time-out" vertex="1">
+          <mxGeometry height="70" width="140" x="20" y="230" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Submit Request Leave" vertex="1">
           <mxGeometry height="70" width="140" x="30" y="320" as="geometry" />
