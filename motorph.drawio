@@ -1,6 +1,6 @@
 <mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36" version="29.3.2">
   <diagram name="Page-1" id="sYOg1dBCZhq0Iq8Ly_Qi">
-    <mxGraphModel dx="2273" dy="1917" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+    <mxGraphModel dx="2570" dy="2088" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
@@ -60,19 +60,19 @@
         <mxCell id="6tIr1BvMprqAoBGWCOfl-5" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;" value="HR Administrator" vertex="1">
           <mxGeometry height="60" width="30" x="1310" y="935" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;fontStyle=0" value="Log in" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-6" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;fontStyle=0" value="Log in" vertex="1">
           <mxGeometry height="70" width="140" x="395" y="460" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;fontStyle=0" value="Log out" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-7" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;fontStyle=0" value="Log out" vertex="1">
           <mxGeometry height="70" width="140" x="395" y="590" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="View Account Details" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-8" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;strokeColor=#d79b00;gradientColor=#ffa500;" value="View Account Details" vertex="1">
           <mxGeometry height="70" width="140" x="-160" y="90" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Set Time-in" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-9" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" value="Set Time-in" vertex="1">
           <mxGeometry height="70" width="140" x="-30" y="150" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Set Time-out" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-10" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" value="Set Time-out" vertex="1">
           <mxGeometry height="70" width="140" x="20" y="230" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-11" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Submit Request Leave" vertex="1">
@@ -93,22 +93,22 @@
         <mxCell id="6tIr1BvMprqAoBGWCOfl-20" edge="1" parent="1" source="6tIr1BvMprqAoBGWCOfl-18" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="6tIr1BvMprqAoBGWCOfl-17">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-18" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Approve Leave Request" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-18" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Approve Leave Request" vertex="1">
           <mxGeometry height="70" width="140" x="625" y="1340" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-21" edge="1" parent="1" source="6tIr1BvMprqAoBGWCOfl-19" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" target="6tIr1BvMprqAoBGWCOfl-17">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-19" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Disapprove Leave Request" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-19" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Disapprove Leave Request" vertex="1">
           <mxGeometry height="70" width="140" x="775" y="1420" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-22" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Create New User" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-22" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Create New User" vertex="1">
           <mxGeometry height="70" width="140" x="140" y="770" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-23" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Update User Information" vertex="1">
           <mxGeometry height="70" width="140" x="210" y="870" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-24" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Soft Delete User" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-24" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Soft Delete User" vertex="1">
           <mxGeometry height="70" width="140" x="230" y="960" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-25" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Reset User Password" vertex="1">
@@ -186,7 +186,7 @@
         <mxCell id="6tIr1BvMprqAoBGWCOfl-46" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Check Remaining Leave Credits" vertex="1">
           <mxGeometry height="70" width="140" x="30" y="570" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-47" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="View Payslip" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-47" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" value="View Payslip" vertex="1">
           <mxGeometry height="70" width="140" x="-130" y="630" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-49" edge="1" parent="1" source="6tIr1BvMprqAoBGWCOfl-46" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;jumpStyle=arc;" target="6tIr1BvMprqAoBGWCOfl-11" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
@@ -220,16 +220,16 @@
         <mxCell id="6tIr1BvMprqAoBGWCOfl-57" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Manage Employees" vertex="1">
           <mxGeometry height="70" width="140" x="835" y="930" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-58" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Create Employee Record" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-58" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Create Employee Record" vertex="1">
           <mxGeometry height="70" width="140" x="585" y="720" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-59" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="View Employee Record" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-59" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" value="View Employee Record" vertex="1">
           <mxGeometry height="70" width="140" x="565" y="820" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-60" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="View Employee Attendance Record" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-60" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" value="View Employee Attendance Record" vertex="1">
           <mxGeometry height="70" width="140" x="555" y="930" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-61" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Modify Employee Record" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-61" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" value="Modify Employee Record" vertex="1">
           <mxGeometry height="70" width="140" x="565" y="1030" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-62" parent="1" style="ellipse;whiteSpace=wrap;html=1;" value="Soft Delete Employee Record" vertex="1">
@@ -295,7 +295,7 @@
             <mxPoint x="545" y="625" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-89" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Generate Payslip" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-89" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" value="Generate Payslip" vertex="1">
           <mxGeometry height="70" width="140" x="725" y="540" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-90" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="View Monthly Payroll Summary Report" vertex="1">
@@ -307,10 +307,10 @@
         <mxCell id="6tIr1BvMprqAoBGWCOfl-92" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="View Employee Payslips" vertex="1">
           <mxGeometry height="70" width="140" x="885" y="630" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-93" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#ffcd28;gradientColor=#ffa500;strokeColor=#d79b00;" value="Compute Deductions" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-93" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Compute Deductions" vertex="1">
           <mxGeometry height="70" width="140" x="555" y="480" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-98" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#d5e8d4;gradientColor=#97d077;strokeColor=#82b366;" value="Compute Gross Salary" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-98" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Compute Gross Salary" vertex="1">
           <mxGeometry height="70" width="140" x="595" y="400" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-99" edge="1" parent="1" source="6tIr1BvMprqAoBGWCOfl-92" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;jumpStyle=arc;" target="6tIr1BvMprqAoBGWCOfl-13" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
@@ -341,7 +341,7 @@
             <mxPoint x="760" y="558" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-105" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Compute Net Salary" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-105" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Compute Net Salary" vertex="1">
           <mxGeometry height="70" width="140" x="710" y="330" as="geometry" />
         </mxCell>
         <mxCell id="6tIr1BvMprqAoBGWCOfl-106" edge="1" parent="1" source="6tIr1BvMprqAoBGWCOfl-105" style="html=1;verticalAlign=bottom;labelBackgroundColor=none;endArrow=open;endFill=0;dashed=1;rounded=0;jumpStyle=arc;" target="6tIr1BvMprqAoBGWCOfl-89" value="&amp;lt;&amp;lt;include&amp;gt;&amp;gt;">
@@ -360,7 +360,7 @@
         <mxCell id="6tIr1BvMprqAoBGWCOfl-110" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Manage Leave Requests" vertex="1">
           <mxGeometry height="70" width="140" x="805" y="1250" as="geometry" />
         </mxCell>
-        <mxCell id="6tIr1BvMprqAoBGWCOfl-111" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f8cecc;gradientColor=#ea6b66;strokeColor=#b85450;" value="Soft Delete Employee Record" vertex="1">
+        <mxCell id="6tIr1BvMprqAoBGWCOfl-111" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Soft Delete Employee Record" vertex="1">
           <mxGeometry height="70" width="140" x="595" y="1120" as="geometry" />
         </mxCell>
         <mxCell id="FMhBrU1qNyOP5DLLIaE_-4" parent="1" style="ellipse;whiteSpace=wrap;html=1;fillColor=#f5f5f5;gradientColor=#b3b3b3;strokeColor=#666666;" value="Search Employee Record" vertex="1">
