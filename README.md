@@ -10,5 +10,9 @@ Government-mandated deductions such as SSS, PhilHealth, Pag-IBIG, and withholdin
 
 All payroll details, including employee information, hours worked, gross weekly salary, monthly deductions, and net weekly salary, are displayed in a clear and organized format in the console.
 
-## Contributors
+## Author
 - April Joyce Abejo
+
+## Mentor
+- Aldrin John Tamayo
+- Mapúa Malayan Digital College, a new college of Malayan Colleges Laguna, a Mapúa school
