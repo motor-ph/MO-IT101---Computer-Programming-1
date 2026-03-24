@@ -12,6 +12,3 @@ All payroll details, including employee information, hours worked, gross weekly 
 
 ## Contributors
 - April Joyce Abejo
-- Member 2
-- Member 3
-- Member 4
