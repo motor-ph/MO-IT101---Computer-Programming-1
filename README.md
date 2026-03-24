@@ -24,6 +24,7 @@ The project follows the single-file requirement (`PayrollSystem.java`) and uses 
 - **Manage Payroll**:
   - Generate monthly payslip for one employee
   - Generate monthly payslip for all employees with attendance in selected month
+  - Generate weekly payslip for one employee
   - Monthly payslip includes weekly attendance breakdown
 - **Employee Time-In/Time-Out**:
   - One time-in and one time-out per employee per day
@@ -51,7 +52,8 @@ After successful login:
 ```text
 1) Generate Monthly Payslip (Single Employee)
 2) Generate Monthly Payslip (All Employees)
-3) Back
+3) Generate Weekly Payslip (Single Employee)
+4) Back
 ```
 
 ### Employee Time-In/Time-Out Submenu
@@ -192,6 +194,32 @@ Total Deductions  : PHP 13,478.27
 ----------------------------------------------------------
 GROSS MONTHLY PAY : PHP 70,526.22
 NET MONTHLY SALARY: PHP 57,047.96
+==========================================================
+```
+
+### Weekly payslip (single employee)
+
+```text
+==========================================================
+                  WEEKLY PAYROLL REPORT
+==========================================================
+Employee #: 10001        Name: Manuel III Garcia
+Birthday  : 10/11/1983   Position: Chief Executive Officer
+Pay Period: June Week 1   Hourly Rate: PHP 535.71
+----------------------------------------------------------
+Days Worked  : 5
+Hours Worked : 30.98
+Gross Weekly : PHP 16,598.08
+----------------------------------------------------------
+              WEEKLY DEDUCTIONS (prorated)
+----------------------------------------------------------
+SSS               : PHP 281.25
+PhilHealth        : PHP 225.00
+Pag-IBIG          : PHP 25.00
+Withholding Tax   : PHP 2,838.32
+Total Deductions  : PHP 3,369.57
+----------------------------------------------------------
+NET WEEKLY SALARY : PHP 13,228.51
 ==========================================================
 ```
 

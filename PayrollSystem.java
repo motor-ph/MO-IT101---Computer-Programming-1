@@ -11,6 +11,7 @@ import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.time.temporal.WeekFields;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -167,7 +168,8 @@ public class PayrollSystem {
             System.out.println("\n--- Manage Payroll ---");
             System.out.println("1) Generate Monthly Payslip (Single Employee)");
             System.out.println("2) Generate Monthly Payslip (All Employees)");
-            System.out.println("3) Back");
+            System.out.println("3) Generate Weekly Payslip (Single Employee)");
+            System.out.println("4) Back");
             System.out.print("Select option: ");
             String choice = scanner.nextLine().trim();
             switch (choice) {
@@ -178,6 +180,9 @@ public class PayrollSystem {
                     generatePayrollAll(scanner, employees, attendance);
                     break;
                 case "3":
+                    generateWeeklyPayslipSingle(scanner, employees, attendance);
+                    break;
+                case "4":
                     running = false;
                     break;
                 default:
@@ -326,6 +331,34 @@ public class PayrollSystem {
         }
     }
 
+    private static void generateWeeklyPayslipSingle(Scanner scanner, Map<String, String[]> employees, List<String[]> attendance) {
+        System.out.print("Enter Employee Number: ");
+        String empNum = scanner.nextLine().trim();
+        String[] emp = employees.get(empNum);
+        if (emp == null) {
+            System.out.println("Employee not found.");
+            return;
+        }
+
+        showMonthChoices();
+        int month = readIntInRange(scanner, "Select month (1-12): ", 1, 12);
+        List<Integer> weeks = availableWeeks(attendance, empNum, month);
+        if (weeks.isEmpty()) {
+            System.out.println("No attendance records found for that employee/month.");
+            return;
+        }
+
+        Collections.sort(weeks);
+        System.out.println("Available weeks for " + monthName(month) + ": " + weeks);
+        int weekNo = readIntInRange(scanner, "Select week number: ", 1, 6);
+        if (!weeks.contains(weekNo)) {
+            System.out.println("No attendance records found for that employee/month/week.");
+            return;
+        }
+
+        printWeeklyPayslip(emp, attendance, month, weekNo, weeks);
+    }
+
     private static void printMonthlyPayslip(String[] emp, List<String[]> attendance, int month, List<Integer> weeks) {
         // Build weekly breakdown first, then compute monthly gross and monthly deductions.
         double hourlyRate = Double.parseDouble(normalizeNumber(emp[EMP_HOURLY_RATE]));
@@ -387,6 +420,56 @@ public class PayrollSystem {
         System.out.println("----------------------------------------------------------");
         System.out.printf("GROSS MONTHLY PAY : %s%n", money(monthlyGross));
         System.out.printf("NET MONTHLY SALARY: %s%n", money(netMonthly));
+        System.out.println("==========================================================");
+    }
+
+    private static void printWeeklyPayslip(String[] emp, List<String[]> attendance, int month, int weekNo, List<Integer> monthWeeks) {
+        double hourlyRate = Double.parseDouble(normalizeNumber(emp[EMP_HOURLY_RATE]));
+        double[] selectedWeek = summarizeWeek(attendance, emp[EMP_ID], month, weekNo);
+        double weeklyHours = selectedWeek[WEEK_SUMMARY_HOURS];
+        int weeklyDays = (int) selectedWeek[WEEK_SUMMARY_DAYS];
+        double weeklyGross = weeklyHours * hourlyRate;
+
+        double monthlyGross = 0.0;
+        for (int availableWeek : monthWeeks) {
+            double[] week = summarizeWeek(attendance, emp[EMP_ID], month, availableWeek);
+            monthlyGross += week[WEEK_SUMMARY_HOURS] * hourlyRate;
+        }
+
+        double sssMonthly = computeSss(monthlyGross);
+        double philHealthMonthly = computePhilHealth(monthlyGross);
+        double pagIbigMonthly = computePagIbig(monthlyGross);
+        double taxableIncome = monthlyGross - (sssMonthly + philHealthMonthly + pagIbigMonthly);
+        double withholdingTaxMonthly = computeWithholdingTax(taxableIncome);
+
+        int weekCount = monthWeeks.size();
+        double sssWeekly = sssMonthly / weekCount;
+        double philHealthWeekly = philHealthMonthly / weekCount;
+        double pagIbigWeekly = pagIbigMonthly / weekCount;
+        double withholdingTaxWeekly = withholdingTaxMonthly / weekCount;
+        double totalWeeklyDeductions = sssWeekly + philHealthWeekly + pagIbigWeekly + withholdingTaxWeekly;
+        double netWeekly = weeklyGross - totalWeeklyDeductions;
+
+        System.out.println("\n==========================================================");
+        System.out.println("                  WEEKLY PAYROLL REPORT");
+        System.out.println("==========================================================");
+        System.out.printf("Employee #: %-12s Name: %s %s%n", emp[EMP_ID], emp[EMP_FIRST_NAME], emp[EMP_LAST_NAME]);
+        System.out.printf("Birthday  : %-12s Position: %s%n", emp[EMP_BIRTHDAY], emp[EMP_POSITION]);
+        System.out.printf("Pay Period: %s Week %-2d  Hourly Rate: %s%n", monthName(month), weekNo, money(hourlyRate));
+        System.out.println("----------------------------------------------------------");
+        System.out.printf("Days Worked  : %d%n", weeklyDays);
+        System.out.printf("Hours Worked : %.2f%n", weeklyHours);
+        System.out.printf("Gross Weekly : %s%n", money(weeklyGross));
+        System.out.println("----------------------------------------------------------");
+        System.out.println("              WEEKLY DEDUCTIONS (prorated)");
+        System.out.println("----------------------------------------------------------");
+        System.out.printf("SSS               : %s%n", money(sssWeekly));
+        System.out.printf("PhilHealth        : %s%n", money(philHealthWeekly));
+        System.out.printf("Pag-IBIG          : %s%n", money(pagIbigWeekly));
+        System.out.printf("Withholding Tax   : %s%n", money(withholdingTaxWeekly));
+        System.out.printf("Total Deductions  : %s%n", money(totalWeeklyDeductions));
+        System.out.println("----------------------------------------------------------");
+        System.out.printf("NET WEEKLY SALARY : %s%n", money(netWeekly));
         System.out.println("==========================================================");
     }
 
