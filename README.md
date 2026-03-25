@@ -1,7 +1,7 @@
 # MotorPH Payroll System
 
 A command-line Java payroll application for MO-IT101.  
-The project follows the single-file requirement (`PayrollSystem.java`) and uses CSV files for employee and attendance data (`data/employees.csv` and `data/attendance.csv`).
+The main application class is [`src/main/java/PayrollSystem.java`](src/main/java/PayrollSystem.java). CSV data lives under `data/employees.csv` and `data/attendance.csv`.
 
 ---
 
@@ -31,6 +31,7 @@ The project follows the single-file requirement (`PayrollSystem.java`) and uses 
   - Prevents duplicate attendance actions
   - Persists attendance updates to `data/attendance.csv`
 - **About MotorPH** informational screen.
+- **Unit tests**: all **15 QA cases** (QA-01–QA-15) automated with JUnit 5; run `mvn test` (see [Unit Tests](#unit-tests)).
 
 ---
 
@@ -101,8 +102,16 @@ Taxable Income = Monthly Gross - (SSS + PhilHealth + Pag-IBIG)
 
 ```text
 MO-IT101---Computer-Programming-1/
-├── PayrollSystem.java
+├── pom.xml
 ├── README.md
+├── docs/
+│   └── qa-test-cases.md
+├── src/main/java/
+│   └── PayrollSystem.java
+├── src/test/java/
+│   ├── PayrollSystemQaTest.java
+│   ├── PayrollDeductionsTest.java
+│   └── QaTest15ColumnIndexConstantsTest.java
 └── data/
     ├── employees.csv
     └── attendance.csv
@@ -124,20 +133,65 @@ Notes:
 
 ### 2) Compile
 
+From the project root (creates `target/classes`):
+
 ```bash
-javac PayrollSystem.java
+mkdir -p target/classes
+javac -d target/classes src/main/java/PayrollSystem.java
 ```
 
 ### 3) Run
 
 ```bash
-java PayrollSystem
+java -cp target/classes PayrollSystem
 ```
 
 ### 4) Login Credentials
 
 - Username: `admin`
 - Password: `motorph123`
+
+---
+
+## Unit Tests
+
+All **15 QA test cases** (QA-01 through QA-15) are automated with **JUnit 5**. Running `mvn test` executes every case and reports Pass or Fail.
+
+Full step-by-step descriptions are in **[docs/qa-test-cases.md](docs/qa-test-cases.md)**.
+
+### Test classes
+
+| Class | QA coverage | What it tests |
+|-------|-------------|---------------|
+| **`PayrollSystemQaTest`** | QA-01 – QA-15 (one `@Test` per QA number) | Login, CSV loading, CRUD, payslip, time-in/out, deductions, source scan |
+| **`PayrollDeductionsTest`** | QA-14 (extended) | PHP 25,000 reference + parameterized SSS/PhilHealth/tax bracket samples |
+| **`QaTest15ColumnIndexConstantsTest`** | QA-15 (extended) | Source scan for magic `emp[digits]` / `row[digits]` |
+
+### QA-14 reference (PHP 25,000 monthly gross)
+
+| Item | Expected |
+|------|----------|
+| SSS Deduction | 1,125 |
+| PhilHealth Deduction | 375 |
+| Pag-IBIG Deduction | 100 |
+| Total Statutory Deductions | 1,600 |
+| Taxable Income (25,000 − 1,600) | 23,400 |
+| Withholding Tax (23,400 − 20,833) × 20% | 513.40 |
+
+### Prerequisites (tests only)
+
+- **JDK 17+** (matches `maven.compiler.release` in `pom.xml`)
+- **Apache Maven** installed so `mvn` is available in your terminal
+
+### Run all tests
+
+From the project root:
+
+```bash
+mvn test
+```
+
+A successful run prints no failures; Maven reports tests executed under the `surefire` plugin.
 
 ---
 
@@ -248,7 +302,7 @@ You have already timed in today.
 
 ## Constraints and Notes
 
-- Single-file implementation (`PayrollSystem.java`) by project requirement.
+- Application logic is consolidated in one class, [`src/main/java/PayrollSystem.java`](src/main/java/PayrollSystem.java). `pom.xml` and `src/test/java/` add **optional** Maven/JUnit testing; you can still compile and run with `javac` / `java` as in [How to Run](#how-to-run).
 - Uses arrays, maps, and lists for data handling.
 - Employee and attendance CRUD updates are in-memory during runtime; attendance clock actions also write back to `data/attendance.csv`.
 
