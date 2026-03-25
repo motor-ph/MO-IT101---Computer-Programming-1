@@ -1,7 +1,30 @@
+<p align="center">
+  <img src="https://img.shields.io/badge/Java-17-ED8B00?logo=openjdk&logoColor=white" alt="Java 17" />
+  <img src="https://img.shields.io/badge/JUnit_5-25A162?logo=junit5&logoColor=white" alt="JUnit 5" />
+  <img src="https://img.shields.io/badge/Maven-C71A36?logo=apachemaven&logoColor=white" alt="Maven" />
+  <img src="https://img.shields.io/badge/Git-F05032?logo=git&logoColor=white" alt="Git" />
+  <img src="https://img.shields.io/badge/GitHub-181717?logo=github&logoColor=white" alt="GitHub" />
+  <img src="https://img.shields.io/badge/Tests-34_passing-brightgreen?logo=checkmarx&logoColor=white" alt="34 tests passing" />
+  <img src="https://img.shields.io/badge/QA_Cases-15/15-blue?logo=testcafe&logoColor=white" alt="QA 15/15" />
+  <img src="https://img.shields.io/badge/License-MIT-yellow?logo=opensourceinitiative&logoColor=white" alt="MIT License" />
+</p>
+
 # MotorPH Payroll System
 
-A command-line Java payroll application for MO-IT101.  
-The project follows the single-file requirement (`PayrollSystem.java`) and uses CSV files for employee and attendance data (`data/employees.csv` and `data/attendance.csv`).
+> A command-line Java payroll application for **MO-IT101 — Computer Programming 1**.  
+> Computes employee salaries, statutory deductions (SSS, PhilHealth, Pag-IBIG), and withholding tax from CSV data.
+
+---
+
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| Language | **Java 17** |
+| Build | **Apache Maven** |
+| Testing | **JUnit 5** (Jupiter + Parameterized) |
+| Version Control | **Git** / **GitHub** |
+| Data | **CSV** (employees & attendance) |
 
 ---
 
@@ -31,6 +54,7 @@ The project follows the single-file requirement (`PayrollSystem.java`) and uses 
   - Prevents duplicate attendance actions
   - Persists attendance updates to `data/attendance.csv`
 - **About MotorPH** informational screen.
+- **Unit tests**: all **15 QA cases** (QA-01–QA-15) automated with JUnit 5; run `mvn test` (see [Unit Tests](#unit-tests)).
 
 ---
 
@@ -97,53 +121,100 @@ Taxable Income = Monthly Gross - (SSS + PhilHealth + Pag-IBIG)
 
 ---
 
-## Project Files
+## Project Structure
 
 ```text
 MO-IT101---Computer-Programming-1/
-├── PayrollSystem.java
+├── pom.xml
 ├── README.md
+├── LICENSE
+├── docs/
+│   └── qa-test-cases.md
+├── src/
+│   ├── main/java/
+│   │   └── PayrollSystem.java
+│   └── test/java/
+│       ├── PayrollSystemQaTest.java
+│       ├── PayrollDeductionsTest.java
+│       └── QaTest15ColumnIndexConstantsTest.java
 └── data/
     ├── employees.csv
     └── attendance.csv
 ```
 
-Notes:
-- Employee data is loaded dynamically from `data/employees.csv`.
-- Attendance data is loaded dynamically from `data/attendance.csv`.
-- Run the program from the project root so relative CSV paths resolve correctly.
+> Employee and attendance data is loaded dynamically from CSV at startup.
+> Run the program from the project root so relative paths resolve correctly.
 
 ---
 
-## How to Run
+## Getting Started
 
-### 1) Prerequisites
+### Prerequisites
 
-- Java JDK 8+ installed
-- Terminal can run `javac` and `java`
+- **JDK 17+** installed (`java --version`)
+- **Apache Maven** installed (`mvn --version`)
 
-### 2) Compile
-
-```bash
-javac PayrollSystem.java
-```
-
-### 3) Run
+### Compile & Run
 
 ```bash
-java PayrollSystem
+# Option A: Maven (recommended)
+mvn compile
+mvn exec:java -Dexec.mainClass=PayrollSystem
+
+# Option B: javac / java
+mkdir -p target/classes
+javac -d target/classes src/main/java/PayrollSystem.java
+java -cp target/classes PayrollSystem
 ```
 
-### 4) Login Credentials
+### Login Credentials
 
-- Username: `admin`
-- Password: `motorph123`
+| Field | Value |
+|-------|-------|
+| Username | `admin` |
+| Password | `motorph123` |
+
+---
+
+## Unit Tests
+
+All **15 QA test cases** (QA-01 through QA-15) are automated with **JUnit 5**. Running `mvn test` executes every case and reports Pass or Fail.
+
+Full step-by-step descriptions are in **[docs/qa-test-cases.md](docs/qa-test-cases.md)**.
+
+### Test classes
+
+| Class | QA coverage | What it tests |
+|-------|-------------|---------------|
+| **`PayrollSystemQaTest`** | QA-01 – QA-15 (one `@Test` per QA number) | Login, CSV loading, CRUD, payslip, time-in/out, deductions, source scan |
+| **`PayrollDeductionsTest`** | QA-14 (extended) | PHP 25,000 reference + parameterized SSS/PhilHealth/tax bracket samples |
+| **`QaTest15ColumnIndexConstantsTest`** | QA-15 (extended) | Source scan for magic `emp[digits]` / `row[digits]` |
+
+### QA-14 reference (PHP 25,000 monthly gross)
+
+| Item | Expected |
+|------|----------|
+| SSS Deduction | 1,125 |
+| PhilHealth Deduction | 375 |
+| Pag-IBIG Deduction | 100 |
+| Total Statutory Deductions | 1,600 |
+| Taxable Income (25,000 − 1,600) | 23,400 |
+| Withholding Tax (23,400 − 20,833) × 20% | 513.40 |
+
+### Run all tests
+
+```bash
+mvn test
+```
+
+A successful run prints no failures; Maven reports tests executed under the `surefire` plugin.
 
 ---
 
 ## Sample Console Outputs
 
-### Successful login + menu
+<details>
+<summary><strong>Successful login + menu</strong></summary>
 
 ```text
 ========================================
@@ -164,7 +235,10 @@ Login successful.
 6) Exit
 ```
 
-### Monthly payslip (single employee)
+</details>
+
+<details>
+<summary><strong>Monthly payslip (single employee)</strong></summary>
 
 ```text
 ==========================================================
@@ -197,7 +271,10 @@ NET MONTHLY SALARY: PHP 57,047.96
 ==========================================================
 ```
 
-### Weekly payslip (single employee)
+</details>
+
+<details>
+<summary><strong>Weekly payslip (single employee)</strong></summary>
 
 ```text
 ==========================================================
@@ -223,32 +300,32 @@ NET WEEKLY SALARY : PHP 13,228.51
 ==========================================================
 ```
 
-### Invalid employee number in payroll menu
+</details>
+
+<details>
+<summary><strong>Edge cases</strong></summary>
 
 ```text
+# Non-existent employee
 Enter Employee Number: 99999
 Employee not found.
-```
 
-### No attendance records for selected month
-
-```text
+# No attendance for selected month
 Select month (1-12): 1
 No attendance records found for that employee/month.
-```
 
-### Duplicate time-in prevention
-
-```text
+# Duplicate time-in
 Enter Employee Number: 10001
 You have already timed in today.
 ```
+
+</details>
 
 ---
 
 ## Constraints and Notes
 
-- Single-file implementation (`PayrollSystem.java`) by project requirement.
+- Application logic is consolidated in one class, [`src/main/java/PayrollSystem.java`](src/main/java/PayrollSystem.java). `pom.xml` and `src/test/java/` add Maven/JUnit testing; you can still compile and run with `javac` / `java` as shown in [Getting Started](#getting-started).
 - Uses arrays, maps, and lists for data handling.
 - Employee and attendance CRUD updates are in-memory during runtime; attendance clock actions also write back to `data/attendance.csv`.
 
@@ -265,9 +342,9 @@ All AI-generated outputs were reviewed, modified, and validated by the author.
 
 ## Author
 
-- April Joyce Abejo
+**April Joyce Abejo**
 
 ## Mentor
 
-- Aldrin John Tamayo
-- Mapúa Malayan Digital College, a new college of Malayan Colleges Laguna, a Mapúa school
+**Aldrin John Tamayo**  
+Mapua Malayan Digital College, a new college of Malayan Colleges Laguna, a Mapua school

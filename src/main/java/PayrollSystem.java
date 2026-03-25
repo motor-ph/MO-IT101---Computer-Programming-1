@@ -98,7 +98,7 @@ public class PayrollSystem {
         }
     }
 
-    private static boolean login(Scanner scanner) {
+    public static boolean login(Scanner scanner) {
         System.out.println("========================================");
         System.out.println("        MotorPH Payroll System Login");
         System.out.println("========================================");
@@ -729,7 +729,7 @@ public class PayrollSystem {
         System.out.println("No time-in record found for today.");
     }
 
-    private static boolean isWithinAllowedClockWindow(LocalTime time) {
+    public static boolean isWithinAllowedClockWindow(LocalTime time) {
         return !time.isBefore(EARLIEST_ALLOWED) && !time.isAfter(LATEST_ALLOWED);
     }
 
@@ -806,7 +806,7 @@ public class PayrollSystem {
     }
 
     // ===== CSV Read Helpers =====
-    private static Map<String, String[]> loadEmployees(String filePath) throws IOException {
+    public static Map<String, String[]> loadEmployees(String filePath) throws IOException {
         // Loads all 19 employee columns directly from CSV (no hardcoded employee list).
         Map<String, String[]> employees = new HashMap<>();
         try (BufferedReader reader = Files.newBufferedReader(Path.of(filePath))) {
@@ -841,7 +841,7 @@ public class PayrollSystem {
         return employees;
     }
 
-    private static List<String[]> loadAttendance(String filePath) throws IOException {
+    public static List<String[]> loadAttendance(String filePath) throws IOException {
         // Attendance CSV columns are: EmpNum, LastName, FirstName, Date, LogIn, LogOut.
         // We keep only EmpNum/Date/LogIn/LogOut in memory.
         List<String[]> rows = new ArrayList<>();
@@ -871,7 +871,7 @@ public class PayrollSystem {
         return rows;
     }
 
-    private static List<Integer> availableWeeks(List<String[]> attendance, String empNum, int month) {
+    public static List<Integer> availableWeeks(List<String[]> attendance, String empNum, int month) {
         List<Integer> weeks = new ArrayList<>();
         for (String[] row : attendance) {
             if (!row[ATT_EMP_ID].equals(empNum)) {
@@ -893,7 +893,7 @@ public class PayrollSystem {
         return weeks;
     }
 
-    private static double[] summarizeWeek(List<String[]> attendance, String empNum, int month, int weekOfMonth) {
+    public static double[] summarizeWeek(List<String[]> attendance, String empNum, int month, int weekOfMonth) {
         // Payroll timeframe rules:
         // - Log-ins up to 8:10 count as 8:00 start (grace period)
         // - Work beyond 5:00 PM is excluded
@@ -959,7 +959,7 @@ public class PayrollSystem {
     }
 
     // ===== Utility Methods =====
-    private static String generateNextEmployeeId(Map<String, String[]> employees) {
+    public static String generateNextEmployeeId(Map<String, String[]> employees) {
         int maxId = 10000;
         for (String key : employees.keySet()) {
             try {
@@ -1080,7 +1080,8 @@ public class PayrollSystem {
     }
 
     // ===== Government Deduction Calculations =====
-    private static double computeSss(double basicSalary) {
+    /** Exposed for unit tests; bracketed SSS employee share from gross. */
+    public static double computeSss(double basicSalary) {
         // SSS uses bracketed contribution amounts with salary floors/caps.
         if (basicSalary < 3250) {
             return 135.0;
@@ -1092,7 +1093,8 @@ public class PayrollSystem {
         return 157.5 + (bracket * 22.5);
     }
 
-    private static double computePhilHealth(double monthlyGross) {
+    /** Exposed for unit tests; employee share is half of total PhilHealth contribution. */
+    public static double computePhilHealth(double monthlyGross) {
         // Reference logic: 300 min total contribution, 1800 cap, employee share is half.
         double totalContribution = 300.0;
         if (monthlyGross > 10000) {
@@ -1105,13 +1107,15 @@ public class PayrollSystem {
         return totalContribution / 2.0;
     }
 
-    private static double computePagIbig(double basicSalary) {
+    /** Exposed for unit tests; 1%/2% of salary capped at 100. */
+    public static double computePagIbig(double basicSalary) {
         // 1% up to 1500 salary, otherwise 2%, capped at 100 contribution.
         double rate = basicSalary <= 1500 ? 0.01 : 0.02;
         return Math.min(basicSalary * rate, 100.0);
     }
 
-    private static double computeWithholdingTax(double taxableMonthlyIncome) {
+    /** Exposed for unit tests; progressive monthly withholding per MotorPH brackets. */
+    public static double computeWithholdingTax(double taxableMonthlyIncome) {
         // Progressive monthly tax brackets from MotorPH reference requirements.
         if (taxableMonthlyIncome <= 20832) {
             return 0;
